@@ -1,196 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-	<title>Shower Presentation Engine</title>
+	<title>Tao-bem</title>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen-16x10.css">
+	<link rel="stylesheet" href="shower/themes/material/styles/screen-16x10.css">
 </head>
 <body class="shower list">
 
 	<header class="caption">
-		<h1>Shower Presentation Engine</h1>
-		<p>Yours Truly, Famous Inc.</p>
+		<h1>tao-bem</h1>
+		<p>Укрощаем БЭМ через js</p>
 	</header>
 
 	<section class="slide" id="cover">
-		<h2>Shower Presentation Engine</h2>
-		<p>Brought to you by <a href="http://pepelsbey.net">Vadim Makeev</a></p>
-		<figure>
-			<img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
-		<style>
-			#cover h2 {
-				margin:30px 0 0;
-				color:#FFF;
-				text-align:center;
-				font-size:70px;
-				}
-			#cover p {
-				margin:10px 0 0;
-				text-align:center;
-				color:#FFF;
-				font-style:italic;
-				font-size:20px;
-				}
-				#cover p a {
-					color:#FFF;
-					}
-		</style>
+		<h2 class="shout">tao-bem &ndash; комплект базовых классов</h2>
 	</section>
 
 	<section class="slide">
-		<h2>Shower key features</h2>
+		<h2>Как использовать</h2>
 		<ol>
-			<li>Built on HTML, CSS and vanilla JavaScript</li>
-			<li>Works in all modern browsers</li>
-			<li>Themes are separated from engine</li>
-			<li>Modular and extensible</li>
-			<li>Fully keyboard accessible</li>
-			<li>Printable to PDF</li>
+			<li class="next">Устанавливаем: <code>yarn add @webtechart/tao-bem</code></li>
+			<li class="next">Подключаем <code>import BEM from "tao-bem";</code></li>
+			<li class="next">Наследуемся <code>class GalleryControls extends BEM.Block {...}</code></li>
+			<li class="next">Отправляем в регистр <code>GalleryControls.register();</code></li>
 		</ol>
-		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
+		<p class="note next">Правильней использовать import BEM from "@webtechart/tao-bem";</p>
 	</section>
 
 	<section class="slide">
-		<h2>Plain text on your slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-	</section>
-
-	<section class="slide">
-		<h2>Two columns if you like</h2>
-		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-	</section>
-
-	<section class="slide">
-		<h2>All kind of lists</h2>
+		<h2>Процесс работы</h2>
 		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
-			</li>
-			<li>Look, seven rows exactly!</li>
+			<li class="next">Через <code>GalleryControls.register();</code> собираются все css-селекторы блоков</li>
+			<li class="next">По <code>$(document).ready()</code> обходится DOM и создаются экземпляры</li>
+			<li class="next">Автоматически ловятся новые DOM-элементы и создаются экземпляры BEM-блоков</li>
+			<li class="next">Все экземпляры хранятся в <code>BEM.Registry</code></li>
+			<li class="next">Экземпляры блоков группируются по классу в коллекции</li>
 		</ol>
 	</section>
 
 	<section class="slide">
-		<h2>Serious citations</h2>
-		<figure>
-			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
-		</figure>
+		<h2>Как получить</h2>
+		<ol>
+			<li class="next">Коллекция: <code>BEM.Registry.getCollection('b-news')</code></li>
+			<li class="next">Первый элемент коллекции:<br><code>BEM.Registry.getCollection('b-news').first()</code></li>
+			<li class="next">Экземпляр BEM-блока по DOM-элементу: <code>BEM.Registry.getInstance($node, 'b-news');</code></li>
+		</ol>
+		<p class="note next">В getInstance второй параметр излишен</p>
 	</section>
 
 	<section class="slide">
-		<h2>Code samples</h2>
-		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code class="mark">&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
+		<h2>Все хорошо?</h2>
+		<ul>
+			<li class="next">А какая последовательность заполнения коллекции?</li>
+			<li class="next">Есть решения?</li>
+			<li class="next">Инициализируем блоки после того, как коллекция заполненна <span class="next" style="color:red">*<br><br> * не катит</span></li>
+		</ul>
+	</section>
+
+	<section class="slide">
+		<h2>Мы можем подождать</h2>
+		<code class="next">BEM.Registry.waitBlock('b-gallery')<span class="next"><br>&nbsp;&nbsp;&nbsp;&nbsp;.then(<span class="next">gallery => gallery.goto(0)</span>)</span></code>
+		<p class="note next">Подходит, но если нужно получить связанный блок однократно &ndash;<br>для выполнения каких-то операций, никак не влияющих на поведение текущего блока.
+</p>
+	</section>
+
+	<section class="slide">
+		<h2>Вводим понятия зависимостей</h2>
+		<pre class="next">
+			<code>static get relatedBlocks() {</code>
+			<code>	return ['b-table'];</code>
+			<code>}</code>
+		</pre>
+		<pre class="next">
+			<code>onRelatedBlocksInit() {</code>
+			<code>	console.log('Таблица существует')</code>
+			<code class="next">	this.relatedBlocks.get('b-table').filter(this.filter);</code>
+			<code>}</code>
 		</pre>
 	</section>
 
 	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
-	</section>
-
-	<section class="slide" id="picture">
-		<h2>Pictures</h2>
-		<figure>
-			<img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
-		<style>
-			#picture h2 {
-				color:#FFF;
-				}
-		</style>
+		<h2>Бонус: шина событий</h2>
+		<ul>
+			<li class="next"><code>'newInstance'</code> с параметрами <code>instance.name, instance</code></li>
+			<li class="next"><code>'newInstance' + instance.name</code> с параметром <code>instance</code></li>
+			<li class="next"><code>Подписываемся: BEM.Bus.addListener(name, callback)</code></li>
+			<li class="next"><code>BEM.Bus.addListener(name, callback, true)</code></li>
+		</ul>
 	</section>
 
 	<section class="slide">
-		<h2 class="shout shrink">You can even shout this way</h2>
+		<h2 class="shout">Пора использовать!<div style="text-align: right; font-size: 50px;"><br>Работает с версии 1.2.1</div></h2>
 	</section>
 
-	<section class="slide">
-		<h2>Inner navigation</h2>
-		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
-		</ol>
-	</section>
-
-	<section class="slide grid">
-		<h2>All nicely aligned to grid</h2>
-	</section>
-
-	<section class="slide" id="see-more">
-		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
-		</h2>
-		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
-		</style>
-	</section>
 
 	<footer class="badge">
 		<a href="https://github.com/shower/shower">Fork me on GitHub</a>
